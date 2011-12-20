@@ -12,4 +12,5 @@ javascripts_dir = "js"
 # To enable relative paths to assets via compass helper functions. Uncomment:
 # relative_assets = true
 
+line_comments = false # by Compass.app 
 output_style = :compact # by Compass.app 
