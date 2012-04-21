@@ -153,9 +153,7 @@ article.post ul { list-style: square; padding: 2px 0; }
 article.post li { padding: 2px 0; }
 article.post small { font-size: 0.9em; }
 
-/* styling for 'continued' page links */
 p.continued { padding: 5px; background: #f0f0f0; }
-
 p.continued a { padding: 5px; font-weight: bold; }
 
 #comments { margin: 0px 10px 10px 0; padding: 0px 10px 10px 0; }

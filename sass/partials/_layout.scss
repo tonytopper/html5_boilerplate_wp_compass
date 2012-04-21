@@ -30,39 +30,55 @@ body.three-column {
 
 // grid defaults - 1 column
 body.grid #container {
-  @include container;
-  // @include show-grid('grid.png');
+	@include container;
+	// @include show-grid('grid.png');
 }
 
 body.grid #container > header,
 body.grid #container > footer,
 body.grid.one-column #posts {
-  @include full; }
+	@include full;
+}
 
 // 3 columns
 body.grid.three-column {
-  #posts {
-    @include columns(10); }
-  aside.left, aside.right {
-    @include columns(3); }
-  aside.left {
-    @include alpha; }
-  aside.right {
-    @include omega; } }
+	#posts {
+		@include columns(10);
+	}
+	aside.left,
+	aside.right {
+    	@include columns(3);
+	}
+  	aside.left {
+    	@include alpha;
+	}
+	aside.right {
+    	@include omega;
+	}
+}
 
 // 2 columns
 body.grid.two-column {
-  #posts {
-    @include columns(11); }
-  aside.right, aside.left {
-    @include columns(5); }
-  &.left-column {
-    aside.left {
-      @include alpha; }
-    #posts {
-      @include omega; } }
-  &.right-column {
-    #posts {
-      @include alpha; }
-    aside.right {
-      @include omega; } } }
+	#posts {
+    	@include columns(11);
+	}
+	aside.right, aside.left {
+    	@include columns(5);
+	}
+  	&.left-column {
+    	aside.left {
+      		@include alpha;
+		}
+    	#posts {
+      		@include omega;
+		}
+	}
+  	&.right-column {
+    	#posts {
+      		@include alpha;
+		}
+    	aside.right {
+      		@include omega;
+		}
+	}
+}
