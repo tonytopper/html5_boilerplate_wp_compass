@@ -1,26 +1,31 @@
 body {
-  @include base-font-properties; }
+	@include base-font-properties;
+	color: $font-color;
+}
 
-body, select, input, textarea {
-  color: $font-color; }
+select, input, textarea {
+	color: $font-color;
+}
 
-a:hover, a:active {
-  outline: none; }
-
-a,
-a:active,
-a:visited {
-  color: $loud-color; }
-
-a:hover {
-  color: $loud-color;
-  border-bottom: dotted 1px $quiet-color; }
-
-a:link {
-  -webkit-tap-highlight-color: #ff5e99; }
-
-a img {
-  border: none; }
+a {
+	color: $loud-color;
+	&:hover {
+		outline: none;
+		color: $loud-color;
+		border-bottom: dotted 1px $quiet-color;
+	}
+	&:active {
+		outline: none;
+		color: $loud-color;
+	}
+	&:visited {
+		color: $loud-color;
+	}
+	&:link {
+	  -webkit-tap-highlight-color: #ff5e99;
+	}
+	img { border: none; }
+}
 
 pre, code, kbd, samp {
   font-family: $fixed-font-family; }
