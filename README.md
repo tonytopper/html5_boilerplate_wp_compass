@@ -22,9 +22,7 @@ To install compass and susy (if you are using RVM you won't need to sudo the fol
     sudo gem install compass --pre
     sudo gem install compass-susy-plugin
 
-You should have the necessary dependencies installed and are now ready to clone this to your wordpress project.
-
-    git clone git://github.com/jayroh/html5_boilerplate_wordpress.git /path/to/project/wp-content/themes/html5_boilerplate
+You should have the necessary dependencies installed and are now ready to clone this to your wordpress project (usually /path/to/project/wp-content/themes/html5_boilerplate)
 
 And most importantly - to compile the changes you make in the theme's SCSS files, located in wp-content/themes/html5_boilerplate/sass/*, you may continually watch for changes :
 
