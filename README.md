@@ -1,5 +1,6 @@
 Yet another HTML5 Boilerplate Wordpress theme - with a twist
 ============================================================
+##sengeezer's fork
 
 This is a very stripped down wordpress theme that hopes to fill in a niche that, from our experience, hasn't been fully realized.  If we're going to future-proof our wordpress themes with HTML5 and CSS3 let's not stop at just integrating Paul Irish and Divya Manian's Boilerplate or marking up with all the new HTML5 tags, let's use something like SASS/SCSS, Compass, and the Susy grid framework to facilitate easier and faster stylesheet authoring.  The goal of this experiment is to pull in the best open source tools to help us work with wordpress theming.
 
