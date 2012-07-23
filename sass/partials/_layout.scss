@@ -37,7 +37,7 @@ body.grid #container {
 body.grid #container > header,
 body.grid #container > footer,
 body.grid.one-column #posts {
-	@include full;
+	// clear: both;
 }
 
 // 3 columns
@@ -50,7 +50,7 @@ body.grid.three-column {
     	@include columns(3);
 	}
   	aside.left {
-    	@include alpha;
+    	
 	}
 	aside.right {
     	@include omega;
@@ -67,7 +67,7 @@ body.grid.two-column {
 	}
   	&.left-column {
     	aside.left {
-      		@include alpha;
+      		
 		}
     	#posts {
       		@include omega;
@@ -75,7 +75,7 @@ body.grid.two-column {
 	}
   	&.right-column {
     	#posts {
-      		@include alpha;
+      		
 		}
     	aside.right {
       		@include omega;
