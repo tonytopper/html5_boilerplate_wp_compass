@@ -8,14 +8,14 @@
 @media print {
 	* {
     	background: transparent !important;
-    	color: #444444 !important;
+    	color: #444 !important;
     	text-shadow: none !important;
 	}
 	a {
-		color: #444444 !important;
+		color: #444 !important;
     	text-decoration: underline;
 		&:visited {
-			color: #444444 !important;
+			color: #444 !important;
 	    	text-decoration: underline;
 		}
 		&:after {
@@ -34,7 +34,7 @@
     	content: "";
 	}
 	pre, blockquote {
-    	border: 1px solid #999999;
+    	border: 1px solid #999;
     	page-break-inside: avoid;
 	}
   	thead {

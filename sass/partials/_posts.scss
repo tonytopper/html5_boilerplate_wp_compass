@@ -4,7 +4,7 @@
 	margin-top: 1em;
 	min-height: 500px;
 	nav {
-    	padding: 0px;
+    	padding: 0;
     	font-size: 0.9em;
     	overflow: hidden;
 		.previous { float: left; }
@@ -14,9 +14,9 @@
 
 article.post {
 	h2 a {
-		color: #333333;
+		color: #333;
 		text-decoration: none;
-		&:hover { color: #cccccc; }
+		&:hover { color: #ccc; }
 	}
 	p { margin: 1.2em 1em 1.2em 0; }
   	a { text-decoration: underline; }
