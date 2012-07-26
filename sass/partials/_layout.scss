@@ -31,23 +31,23 @@ body.three-column {
 // grid defaults - 1 column
 body.grid #container {
 	@include container;
-	// @include show-grid('grid.png');
+	@include susy-grid-background;
 }
 
 body.grid #container > header,
 body.grid #container > footer,
 body.grid.one-column #posts {
-	// clear: both;
+	clear: both;
 }
 
 // 3 columns
 body.grid.three-column {
 	#posts {
-		@include columns(10);
+		@include span-columns(10,16);
 	}
 	aside.left,
 	aside.right {
-    	@include columns(3);
+    	@include span-columns(3,16);
 	}
   	aside.left {
     	
@@ -60,10 +60,10 @@ body.grid.three-column {
 // 2 columns
 body.grid.two-column {
 	#posts {
-    	@include columns(11);
+    	@include span-columns(11,16);
 	}
 	aside.right, aside.left {
-    	@include columns(5);
+    	@include span-columns(5,16);
 	}
   	&.left-column {
     	aside.left {

@@ -11,7 +11,7 @@
 	  <?php endwhile; endif; ?>
 		<?php edit_post_link('Edit', '<p>', '</p>'); ?>
   </div>
-  <?php get_sidebar(); ?>
+  <!-- php get_sidebar();  -->
   <?php get_sidebar ('right'); ?>
 </div>
 <?php get_footer(); ?>

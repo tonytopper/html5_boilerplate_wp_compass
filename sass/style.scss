@@ -1,5 +1,5 @@
 // Base Font
-$base-font-family: Verdana, Tahoma, Helvetica, Arial, sans-serif !default;
+$base-font-family: Arial, Helvetica, sans-serif !default;
 $base-font-size: 62.5% !default;
 $base-line-height: 2.2em !default;
 $base-alignment: center;
@@ -18,14 +18,14 @@ $background-color: white !default;
 
 // 12 COLUMN GRID
 // Font Sizes
-// $base-font-size:   	16px;
-// $base-line-height: 	24px;
+// $base-font-size: 16px;
+// $base-line-height: 24px;
 
 // Grid
-// $total-columns: 	12;
-// $column-width: 		4em;
-// $gutter-width: 	1em;
-// $grid-padding: 	$gutter-width;
+// $total-columns: 12;
+// $column-width: 4em;
+// $gutter-width: 1em;
+// $grid-padding: $gutter-width;
 
 // 16 COLUMN GRID
 // Font Sizes
@@ -40,8 +40,8 @@ $grid-padding: $gutter-width / 2;
 
 // Don't move this @import above the GRID and FONT-SIZE variables.
 @import "susy";
-
 // @import "compass"; // not necessary after importing susy
+
 @import "modules/base";
 @import "partials/boilerplate";
 @import "partials/base";
