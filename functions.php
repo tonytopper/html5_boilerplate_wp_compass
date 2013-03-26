@@ -5,7 +5,7 @@
 // ===================
 function show_sidebar_at($position) 
 { 
-	return get_option('sidebar_'.$position) == "1" ? true : false; 
+	return get_theme_mod('sidebar_'.$position); 
 }
 function show_search_form() 
 { 
@@ -42,6 +42,35 @@ function h5susy_customize_register( $wp_customize ) {
     'label'    => __( 'Use Grid' ),
     'section'  => 'susy_settings',
     'type'     => 'checkbox',
+	) );
+	//Sidebar Settings
+	$wp_customize->add_section( 'sidebar_settings', array(
+			'title'          => 'Sidebar',
+			'priority'       => 34,
+	) );
+	$wp_customize->add_setting( 'sidebar_left' , array(
+			'default'     => false
+	) );
+	$wp_customize->add_setting( 'sidebar_right' , array(
+			'default'     => false
+	) );
+	$wp_customize->add_setting( 'sidebar_footer' , array(
+			'default'     => false
+	) );
+	$wp_customize->add_control( 'sidebar_left', array(
+			'label'    => __( 'Left sidebar' ),
+			'section'  => 'sidebar_settings',
+			'type'     => 'checkbox'
+	) );
+	$wp_customize->add_control( 'sidebar_right', array(
+			'label'    => __( 'Right sidebar' ),
+			'section'  => 'sidebar_settings',
+			'type'     => 'checkbox'
+	) );
+	$wp_customize->add_control( 'sidebar_footer', array(
+			'label'    => __( 'Footer sidebar' ),
+			'section'  => 'sidebar_settings',
+			'type'     => 'checkbox'
 	) );
 }
 
@@ -177,10 +206,27 @@ function editglobalcustomfields()
 // =======================
 // = SET UP THE SIDEBARS =
 // =======================
-if (function_exists('register_sidebar')) {
-	if(show_sidebar_at('left')){ register_sidebar(array('name'=>'sidebar left')); }
-	if(show_sidebar_at('right')){ register_sidebar(array('name'=>'sidebar right')); }
-	if(show_sidebar_at('footer')){ register_sidebar(array('name'=>'sidebar footer')); }
+add_action( 'widgets_init', 'h5susy_sidebar' );
+function h5susy_sidebar() 
+{
+	if (get_theme_mod('sidebar_left')) {
+		register_sidebar(array(
+				'id' => 'left-sidebar',
+			'name' => __('Left sidebar')
+		));
+	}
+	if (get_theme_mod('sidebar_right')) {
+		register_sidebar(array(
+				'id' => 'right-sidebar',
+			'name' => __('Right sidebar')
+		));
+	}
+	if (get_theme_mod('sidebar_footer')) {
+		register_sidebar(array(
+				'id' => 'footer-sidebar',
+			'name' => __('Footer sidebar')
+		));
+	}
 }
 
 // ===================================
@@ -189,8 +235,8 @@ if (function_exists('register_sidebar')) {
 function h5susy_body_class_filter($classes) 
 {
 	$columns = 1;
-	if(show_sidebar_at('left')) { $columns++; $classes[] = "left-column"; }
-	if(show_sidebar_at('right')) { $columns++; $classes[] = "right-column";  }
+	if(get_theme_mod('sidebar_left')) { $columns++; $classes[] = "left-column"; }
+	if(get_theme_mod('sidebar_right')) { $columns++; $classes[] = "right-column";  }
 	
 	if($columns == 1){ $classes[] = "one-column"; }
 	if($columns == 2){ $classes[] = "two-column"; }
