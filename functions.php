@@ -76,9 +76,6 @@ function h5susy_customize_register( $wp_customize ) {
 
 function editglobalcustomfields()
 {
-	$sidebar_left_status = show_sidebar_at('left') ? "checked=\"yes\"" : "";
-	$sidebar_right_status = show_sidebar_at('right') == "1" ? "checked=\"yes\"" : "";
-	$sidebar_footer_status = show_sidebar_at('footer') == "1" ? "checked=\"yes\"" : "";
 	?>
 	<style type="text/css" media="screen">
 	
@@ -108,7 +105,7 @@ function editglobalcustomfields()
 		<h2>Theme Options</h2>
   		<form method="post" action="options.php" id="theme_options">
 	  	  	<input type="hidden" name="action" value="update" />
-			<input type="hidden" name="page_options" value="company_name,site_credit,sidebar_left,sidebar_right,sidebar_footer,show_search,show_footer_title,show_footer_meta,custom_menus" />
+			<input type="hidden" name="page_options" value="company_name,site_credit,show_search,show_footer_title,show_footer_meta,custom_menus" />
 			<?php wp_nonce_field('update-options') ?>
 
 
@@ -125,16 +122,6 @@ function editglobalcustomfields()
 					<input type="text" name="site_credit" value="<?php echo htmlspecialchars(get_option('site_credit')); ?>" id="site_credit" size="40" />
 				</p>
 
-				<p class="sidebars">
-					<strong>Which sidebars would you like to see?</strong>
-
-					<input type="checkbox" name="sidebar_left" value="1" id="sidebar_left" <?php echo $sidebar_left_status ?> /> <label for="sidebar_left">Left Sidebar</label>
-
-					<input type="checkbox" name="sidebar_right" value="1" id="sidebar_right" <?php echo $sidebar_right_status ?> /> <label for="sidebar_right">Right Sidebar</label>
-
-					<input type="checkbox" name="sidebar_footer" value="1" id="sidebar_footer" <?php echo $sidebar_footer_status ?> /> <label for="sidebar_footer">Footer Sidebar</label>
-				</p>
-				
 			</fieldset>
 
 			<fieldset id="options_header" class="">

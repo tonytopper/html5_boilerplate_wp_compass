@@ -11,8 +11,8 @@ Tags: two-columns, responsive
 // Base Font
 //Font sizes seems to need to be in pixels to gel with Susy
 $base-font-family: Arial, Helvetica, sans-serif !default;
-$base-font-size: 14px !default; 
-$base-line-height: 16px !default;
+$base-font-size: 16px !default; 
+$base-line-height: 20px !default;
 $base-alignment: center;
 
 // Fixed Font
@@ -34,7 +34,7 @@ $background-color: #fff !default;
 // ---------------------------------------------------------------------------
 // Basic Grid
 
-$total-columns  : 12;
+$total-columns  : 16;
 $column-width   : 4em;
 $gutter-width   : 1em;
 $grid-padding   : $gutter-width;
