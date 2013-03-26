@@ -3,25 +3,53 @@
 // ===================
 // = UTILITY METHODS =
 // ===================
-function show_sidebar_at($position) { return get_option('sidebar_'.$position) == "1" ? true : false; }
-function show_search_form() { return get_option('show_search') == "1" ? true : false; }
-function show_footer_title() { return get_option('show_footer_title') == "1" ? true : false; }
-function show_footer_meta() { return get_option('show_footer_meta') == "1" ? true : false; }
-function use_grid() { return get_option('use_grid') == "1" ? true : false; }
+function show_sidebar_at($position) 
+{ 
+	return get_option('sidebar_'.$position) == "1" ? true : false; 
+}
+function show_search_form() 
+{ 
+	return get_option('show_search') == "1" ? true : false; 
+}
+function show_footer_title() 
+{ 
+	return get_option('show_footer_title') == "1" ? true : false; 
+}
+function show_footer_meta() { 
+	return get_option('show_footer_meta') == "1" ? true : false; 
+}
 
 // =========================
 // = CUSTOM THEME SETTINGS =
 // =========================
-add_action('admin_menu', 'add_gcf_interface');
+add_action( 'admin_menu', 'add_gcf_interface' );
+function add_gcf_interface()
+{
+	add_theme_page( 'More Theme Options', 'More Theme Options', 'edit_themes', basename(__FILE__), 'editglobalcustomfields' );
+}
 
-function add_gcf_interface(){ add_theme_page( 'More Theme Options', 'More Theme Options', 'edit_themes', basename(__FILE__), 'editglobalcustomfields' ); }
+add_action( 'customize_register', 'h5susy_customize_register' );
+function h5susy_customize_register( $wp_customize ) {
+	$wp_customize->add_section( 'susy_settings', array(
+			'title'          => 'Susy',
+			'priority'       => 35,
+	) );
+	$wp_customize->add_setting( 'use_grid' , array(
+    'default'     => false,
+    'transport'   => 'refresh',
+	) );
+	$wp_customize->add_control( 'use_grid', array(
+    'label'    => __( 'Use Grid' ),
+    'section'  => 'susy_settings',
+    'type'     => 'checkbox',
+	) );
+}
 
 function editglobalcustomfields()
 {
 	$sidebar_left_status = show_sidebar_at('left') ? "checked=\"yes\"" : "";
 	$sidebar_right_status = show_sidebar_at('right') == "1" ? "checked=\"yes\"" : "";
 	$sidebar_footer_status = show_sidebar_at('footer') == "1" ? "checked=\"yes\"" : "";
-	$use_grid = use_grid() == "1" ? "checked=\"yes\"" : "";
 	?>
 	<style type="text/css" media="screen">
 	
@@ -51,7 +79,7 @@ function editglobalcustomfields()
 		<h2>Theme Options</h2>
   		<form method="post" action="options.php" id="theme_options">
 	  	  	<input type="hidden" name="action" value="update" />
-			<input type="hidden" name="page_options" value="company_name,site_credit,use_grid,sidebar_left,sidebar_right,sidebar_footer,show_search,show_footer_title,show_footer_meta,custom_menus" />
+			<input type="hidden" name="page_options" value="company_name,site_credit,sidebar_left,sidebar_right,sidebar_footer,show_search,show_footer_title,show_footer_meta,custom_menus" />
 			<?php wp_nonce_field('update-options') ?>
 
 
@@ -66,12 +94,6 @@ function editglobalcustomfields()
 				<p>
 					<label for="company_name">Site Credit</label>
 					<input type="text" name="site_credit" value="<?php echo htmlspecialchars(get_option('site_credit')); ?>" id="site_credit" size="40" />
-				</p>
-
-				<p class="dev">
-					<strong>Would you like to use the 960px grid in your theme?</strong>
-					
-					<input type="checkbox" name="use_grid" value="1" id="use_grid" <?php echo $use_grid; ?> /> <label for="use_grid">Yes</label>
 				</p>
 
 				<p class="sidebars">
@@ -155,8 +177,7 @@ function editglobalcustomfields()
 // =======================
 // = SET UP THE SIDEBARS =
 // =======================
-if (function_exists('register_sidebar'))
-{
+if (function_exists('register_sidebar')) {
 	if(show_sidebar_at('left')){ register_sidebar(array('name'=>'sidebar left')); }
 	if(show_sidebar_at('right')){ register_sidebar(array('name'=>'sidebar right')); }
 	if(show_sidebar_at('footer')){ register_sidebar(array('name'=>'sidebar footer')); }
@@ -165,7 +186,7 @@ if (function_exists('register_sidebar'))
 // ===================================
 // = ADD NEW CLASSES TO body_class() =
 // ===================================
-function sidebar_number_class($classes) 
+function h5susy_body_class_filter($classes) 
 {
 	$columns = 1;
 	if(show_sidebar_at('left')) { $columns++; $classes[] = "left-column"; }
@@ -175,18 +196,18 @@ function sidebar_number_class($classes)
 	if($columns == 2){ $classes[] = "two-column"; }
 	if($columns == 3){ $classes[] = "three-column"; }
 	
-	if(use_grid()){ $classes[] = "grid"; }
+	if(get_theme_mod('use_grid')) { 
+		$classes[] = "grid"; 
+	}
 	 
-	// return the $classes array
 	return $classes;
 }
-add_filter('body_class','sidebar_number_class');
+add_filter( 'body_class', 'h5susy_body_class_filter' );
 
 // ============
 // = TWEAK WP =
 // ============
-if (function_exists( 'add_theme_support' ))
-{
+if (function_exists( 'add_theme_support' )) {
 	add_theme_support('post-thumbnails');
 	add_theme_support('menus');
 	add_theme_support('automatic-feed-links');
@@ -199,8 +220,7 @@ if (function_exists( 'add_theme_support' ))
 }
 
 // Load jQuery & Modernizr
-if (!is_admin())
-{
+if (!is_admin()) {
 
 	wp_deregister_script('jquery');
 	wp_register_script('jquery', "http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js", array(), '1.4.4');

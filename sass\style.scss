@@ -1,7 +1,18 @@
+/*!
+Theme Name: HTML5 Compass Susy Boilerplate 
+Theme URI: https://github.com/tonytopper/html5_boilerplate_wp_compass
+Description: See the README.md for proper credit and thank yous
+Author: Anthony Topper
+Author URI: https://github.com/tonytopper
+Version: 1.0
+Tags: two-columns, responsive
+*/
+
 // Base Font
+//Font sizes seems to need to be in pixels to gel with Susy
 $base-font-family: Arial, Helvetica, sans-serif !default;
-$base-font-size: 100% !default;
-$base-line-height: 2.2em !default;
+$base-font-size: 14px !default; 
+$base-line-height: 16px !default;
 $base-alignment: center;
 
 // Fixed Font
@@ -16,31 +27,19 @@ $quiet-color: $font-color + #666 !default;
 $header-color: $font-color - #222 !default;
 $background-color: #fff !default;
 
-// 12 COLUMN GRID
-// Font Sizes
-// $base-font-size: 16px;
-// $base-line-height: 24px;
+// Imports
 
-// Grid
-// $total-columns: 12;
-// $column-width: 4em;
-// $gutter-width: 1em;
-// $grid-padding: $gutter-width;
-
-// 16 COLUMN GRID
-// Font Sizes
-$base-font-size: 10px;
-$base-line-height: 18px;
-
-// Grid
-$total-columns: 16;
-$column-width: 4em;
-$gutter-width: 2em;
-$grid-padding: $gutter-width / 2;
-
-// Don't move this @import above the GRID and FONT-SIZE variables.
 @import "susy";
-// @import "compass"; // not necessary after importing susy
+
+// ---------------------------------------------------------------------------
+// Basic Grid
+
+$total-columns  : 12;
+$column-width   : 4em;
+$gutter-width   : 1em;
+$grid-padding   : $gutter-width;
+
+$show-grid-backgrounds  : true;
 
 @import "modules/base";
 @import "partials/boilerplate";

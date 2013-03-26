@@ -2,7 +2,7 @@
 require 'susy'
 
 # Set this to the root of your project when deployed:
-http_path = "/wp-content/themes/h5bp-wpt"
+http_path = "/wp-content/themes/html5_boilerplate_wp_compass"
 css_dir = "."
 sass_dir = "sass"
 images_dir = "images"
