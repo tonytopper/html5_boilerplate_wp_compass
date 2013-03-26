@@ -2,6 +2,7 @@
 
 // ===================
 // = UTILITY METHODS =
+//TODO: These methods are redundant.  Remove them
 // ===================
 function show_sidebar_at($position) 
 { 
@@ -9,7 +10,7 @@ function show_sidebar_at($position)
 }
 function show_search_form() 
 { 
-	return get_option('show_search') == "1" ? true : false; 
+	return get_theme_mod('show_search'); 
 }
 function show_footer_title() 
 { 
@@ -30,6 +31,20 @@ function add_gcf_interface()
 
 add_action( 'customize_register', 'h5susy_customize_register' );
 function h5susy_customize_register( $wp_customize ) {
+	//Header settings
+	$wp_customize->add_section( 'header_settings', array(
+			'title'          => 'Header',
+			'priority'       => 33,
+	) );
+	$wp_customize->add_setting( 'show_search', array(
+			'default'     => false,
+	) );
+	$wp_customize->add_control( 'show_search', array(
+			'label'    => __( 'Show search box' ),
+			'section'  => 'header_settings',
+			'type'     => 'checkbox',
+	) );
+	//Susy
 	$wp_customize->add_section( 'susy_settings', array(
 			'title'          => 'Susy',
 			'priority'       => 35,
@@ -105,7 +120,7 @@ function editglobalcustomfields()
 		<h2>Theme Options</h2>
   		<form method="post" action="options.php" id="theme_options">
 	  	  	<input type="hidden" name="action" value="update" />
-			<input type="hidden" name="page_options" value="company_name,site_credit,show_search,show_footer_title,show_footer_meta,custom_menus" />
+			<input type="hidden" name="page_options" value="company_name,site_credit,show_footer_title,show_footer_meta,custom_menus" />
 			<?php wp_nonce_field('update-options') ?>
 
 
@@ -122,24 +137,6 @@ function editglobalcustomfields()
 					<input type="text" name="site_credit" value="<?php echo htmlspecialchars(get_option('site_credit')); ?>" id="site_credit" size="40" />
 				</p>
 
-			</fieldset>
-
-			<fieldset id="options_header" class="">
-				<legend>Header</legend>
-				
-				<p>
-					<label for="">Show search form in the header?</label>
-					<select name="show_search" id="show_search">
-					<?php if (show_search_form()) : ?>
-						<option value="1" selected="selected">Yes</option>
-						<option value="0">No</option>
-					<?php else : ?>
-						<option value="1">Yes</option>
-						<option value="0" selected="selected">No</option>
-					<?php endif; ?>
-					</select>
-				</p>
-				
 			</fieldset>
 
 			<fieldset id="options_footer" class="">
