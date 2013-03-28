@@ -2,3 +2,5 @@
 .AppleDouble
 .sass-cache
 *.swp
+.project
+.settings*
