@@ -2,33 +2,64 @@
 // your own theme and override as you would like.
 
 //   If not, then just hack away below and change it as you see fit.
+$layout_width: 960px;
+$layout_margin: 10px;
 
-// DEFAULT / WITHOUT GRID 
-
+// no Susy grids 
 body #container {
-	width: 960px;
+	width: $layout_width;
 	margin: 0 auto; }
 
+// 2 columns - no Susy grids
+body.two-column {
+  $layout_column_width: 250px;
+  #posts {
+    width: $layout_width - $layout_column_width - $layout_margin; 
+    float: left;
+  }
+  aside.right, aside.left {
+    width: $layout_column_width;
+    float: left;
+  }
+  &.left-column {
+    aside.left {
+      margin-right: $layout_margin;  
+    }
+    #posts {
+      margin-right: 0;
+    }
+  }
+  &.right-column {
+    #posts {
+      margin-right: $layout_margin;      
+    }
+    aside.right {
+      margin-right: 0;
+    }
+  }
+}
+
+// 3 columns - no Susy grids
 body.three-column {
-	aside.left,
-	aside.right,
-	#posts {
-    	margin-right: 10px;
-    	width: 200px;
-    	float: left;
+  $layout_column_width: 200px;
+  #posts {
+    margin-right: $layout_margin;
+    width: $layout_width - ($layout_margin * 2) - ($layout_column_width * 2);
+    float: left;
+  }
+	aside.left {
+    margin-right: $layout_margin;
+    width: $layout_column_width;
+    float: left;
 	}
-  	aside.right {
-    	margin-right: 0;
-	}
-  	#posts {
-    	margin-right: 10px;
-    	width: 540px;
+  aside.right {
+    margin-right: 0;
+    width: $layout_column_width;
+    float: left;
 	}
 }
 
-// WITH GRID
-
-// grid defaults - 1 column
+// Susy grids - 1 column
 body.grid #container {
 	@include container;
 }
@@ -40,6 +71,32 @@ body.grid #container > header,
 body.grid #container > footer,
 body.grid.one-column #posts {
 	clear: both;
+}
+
+// 2 columns
+body.grid.two-column {
+  #posts {
+      @include span-columns(11,16);
+  }
+  aside.right, aside.left {
+      @include span-columns(5,16);
+  }
+  &.left-column {
+    aside.left {
+          
+    }
+    #posts {
+      @include omega;
+    }
+  }
+  &.right-column {
+    #posts {
+          
+    }
+    aside.right {
+      @include omega;
+    }
+  }
 }
 
 // 3 columns
@@ -56,31 +113,5 @@ body.grid.three-column {
 	}
 	aside.right {
     	@include omega;
-	}
-}
-
-// 2 columns
-body.grid.two-column {
-	#posts {
-    	@include span-columns(11,16);
-	}
-	aside.right, aside.left {
-    	@include span-columns(5,16);
-	}
-  	&.left-column {
-    	aside.left {
-      		
-		}
-    	#posts {
-      		@include omega;
-		}
-	}
-  	&.right-column {
-    	#posts {
-      		
-		}
-    	aside.right {
-      		@include omega;
-		}
 	}
 }
