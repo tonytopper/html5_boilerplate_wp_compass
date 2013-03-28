@@ -31,9 +31,11 @@ body.three-column {
 // grid defaults - 1 column
 body.grid #container {
 	@include container;
-	@include susy-grid-background;
 }
 
+body.showgrid #container {
+  @include susy-grid-background;
+}
 body.grid #container > header,
 body.grid #container > footer,
 body.grid.one-column #posts {

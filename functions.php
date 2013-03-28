@@ -54,9 +54,18 @@ function h5susy_customize_register( $wp_customize ) {
     'transport'   => 'refresh',
 	) );
 	$wp_customize->add_control( 'use_grid', array(
-    'label'    => __( 'Use Grid' ),
+    'label'    => __( 'Use grid' ),
     'section'  => 'susy_settings',
     'type'     => 'checkbox',
+	) );
+	$wp_customize->add_setting( 'show_grid' , array(
+			'default'     => false,
+			'transport'   => 'refresh',
+	) );
+	$wp_customize->add_control( 'show_grid', array(
+			'label'    => __( 'Show grid' ),
+			'section'  => 'susy_settings',
+			'type'     => 'checkbox',
 	) );
 	//Sidebar Settings
 	$wp_customize->add_section( 'sidebar_settings', array(
@@ -228,6 +237,9 @@ function h5susy_body_class_filter($classes)
 	
 	if(get_theme_mod('use_grid')) { 
 		$classes[] = "grid"; 
+	}
+	if(get_theme_mod('show_grid')) {
+		$classes[] = "showgrid";
 	}
 	 
 	return $classes;
