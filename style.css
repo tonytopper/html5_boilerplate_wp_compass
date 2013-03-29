@@ -141,14 +141,15 @@ body.grid.three-column #posts { width: 62.02532%; float: left; margin-right: 1.2
 body.grid.three-column aside.left, body.grid.three-column aside.right { width: 17.72152%; float: left; margin-right: 1.26582%; display: inline; }
 body.grid.three-column aside.right { float: right; margin-right: 0; #margin-left: -1em; display: inline; }
 
-header[role="banner"] { background: #efefef; padding: 1em; }
+header[role="banner"] { background: #efefef; }
+header[role="banner"] hgroup { padding: 1em; }
 header[role="banner"] nav ul { clear: both; margin: 10px 0 0; padding: 0; list-style: none; display: block; overflow: hidden; }
 header[role="banner"] nav ul li { display: block; float: left; padding: 0 0; margin: 0 0; font-size: 1.3em; font-weight: bold; }
 
 #container footer { clear: both; margin-top: 1em; }
 #container footer p { padding: 5px 0; }
 
-#container aside { background-color: #ccc; margin-top: 1em; min-height: 500px; }
+#container aside { background-color: #ccc; min-height: 500px; }
 #container aside h2 { margin-top: 20px; }
 #container aside ul { margin: 0; padding: 0; list-style: none; }
 #container aside ul li { padding: 2px; }

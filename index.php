@@ -17,7 +17,7 @@
 					<?php the_content('Continue reading &raquo;'); ?>
 					
 					<footer class="post-info">
-						<span class="categories"><?php the_category(', ') ?></span> |
+						<span class="categories"><?php the_category(', ') ?></span> | 
 						<?php edit_post_link('Moderate','','|'); ?>
 						<?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?>
 					</footer>
