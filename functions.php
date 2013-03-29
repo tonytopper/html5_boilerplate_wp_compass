@@ -265,7 +265,7 @@ if (function_exists( 'add_theme_support' )) {
 if (!is_admin()) {
 
 	wp_deregister_script('jquery');
-	wp_register_script('jquery', "http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js", array(), '1.4.4');
+	wp_register_script('jquery', "http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js", array(), '1.8.3');
 	wp_enqueue_script('jquery');
 
 	wp_deregister_script( 'modernizr' ); // get rid of any native Modernizr
