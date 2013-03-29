@@ -134,12 +134,12 @@ body.grid #container > header, body.grid #container > footer, body.grid.one-colu
 
 body.grid.two-column #posts { width: 68.35443%; float: left; margin-right: 1.26582%; display: inline; }
 body.grid.two-column aside.right, body.grid.two-column aside.left { width: 30.37975%; float: left; margin-right: 1.26582%; display: inline; }
-body.grid.two-column.left-column #posts { float: right; margin-right: 0; *margin-left: -1em; display: inline; }
-body.grid.two-column.right-column aside.right { float: right; margin-right: 0; *margin-left: -1em; display: inline; }
+body.grid.two-column.left-column #posts { float: right; margin-right: 0; #margin-left: -1em; display: inline; }
+body.grid.two-column.right-column aside.right { float: right; margin-right: 0; #margin-left: -1em; display: inline; }
 
 body.grid.three-column #posts { width: 62.02532%; float: left; margin-right: 1.26582%; display: inline; }
 body.grid.three-column aside.left, body.grid.three-column aside.right { width: 17.72152%; float: left; margin-right: 1.26582%; display: inline; }
-body.grid.three-column aside.right { float: right; margin-right: 0; *margin-left: -1em; display: inline; }
+body.grid.three-column aside.right { float: right; margin-right: 0; #margin-left: -1em; display: inline; }
 
 header[role="banner"] { background: #efefef; padding: 1em; }
 header[role="banner"] nav ul { clear: both; margin: 10px 0 0; padding: 0; list-style: none; display: block; overflow: hidden; }
@@ -161,12 +161,14 @@ header[role="banner"] nav ul li { display: block; float: left; padding: 0 0; mar
 
 article.post h2 a { color: #333; text-decoration: none; }
 article.post h2 a:hover { color: #ccc; }
+article.post abbr.published:before { content: "Posted: "; }
 article.post p { margin: 1.2em 1em 1.2em 0; }
 article.post a { text-decoration: underline; }
 article.post img { padding: 5px 8px; }
 article.post ul { list-style: square; padding: 2px 0; }
 article.post li { padding: 2px 0; }
 article.post small { font-size: 0.9em; }
+article.post .categories:before { content: "Filed under: "; }
 
 p.continued { padding: 5px; background: #f0f0f0; }
 p.continued a { padding: 5px; font-weight: bold; }

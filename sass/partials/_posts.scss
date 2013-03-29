@@ -18,6 +18,9 @@ article.post {
 		text-decoration: none;
 		&:hover { color: #ccc; }
 	}
+	abbr.published:before {
+	  content: "Posted: "; 
+	}
 	p { margin: 1.2em 1em 1.2em 0; }
   	a { text-decoration: underline; }
   	img { padding: 5px 8px; }
@@ -25,8 +28,11 @@ article.post {
 		list-style: square;
     	padding: 2px 0;
 	}
-  	li { padding: 2px 0; }
-  	small { font-size: 0.9em; }
+  li { padding: 2px 0; }
+  small { font-size: 0.9em; }
+  .categories:before {
+    content: "Filed under: ";
+  }
 }
 
 // styling for 'continued' page links

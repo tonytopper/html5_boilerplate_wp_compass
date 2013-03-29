@@ -10,14 +10,14 @@
 				<article id="post-<?php the_ID(); ?>" class="post">
 					<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></h2>
 					<cite>
-						<span class="date">Posted: <abbr title="<?php the_time('Y-d-m\TG:i:s') ?>" class="published"><?php the_time('jS F Y') ?></abbr></span>
+						<span class="date"><abbr title="<?php the_time('Y-d-m\TG:i:s') ?>" class="published"><?php the_time('jS F Y') ?></abbr></span>
 						<span class="author">By <?php the_author() ?></span>
 					</cite>
 					
 					<?php the_content('Continue reading &raquo;'); ?>
 					
 					<footer class="post-info">
-						Filed under: <?php the_category(', ') ?> |
+						<span class="categories"><?php the_category(', ') ?></span> |
 						<?php edit_post_link('Moderate','','|'); ?>
 						<?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?>
 					</footer>
