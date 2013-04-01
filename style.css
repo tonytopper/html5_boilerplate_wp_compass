@@ -133,8 +133,6 @@ body.showgrid #container { background-image: -webkit-gradient(linear, 0% 50%, 10
 body.grid #container > header, body.grid #container > footer, body.grid.one-column #posts { clear: both; }
 
 body.grid.two-column #posts { width: 79.79798%; float: left; margin-right: 1.0101%; display: inline; }
-body.grid.two-column #posts article { width: 49.36709%; float: left; margin-right: 1.26582%; display: inline; }
-body.grid.two-column #posts article:nth-child(2n) { float: right; margin-right: 0; }
 body.grid.two-column aside.right, body.grid.two-column aside.left { width: 19.19192%; float: left; margin-right: 1.0101%; display: inline; }
 body.grid.two-column.left-column #posts { float: right; margin-right: 0; #margin-left: -1em; display: inline; }
 body.grid.two-column.right-column aside.right { float: right; margin-right: 0; #margin-left: -1em; display: inline; }

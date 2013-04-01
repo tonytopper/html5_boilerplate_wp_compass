@@ -77,10 +77,6 @@ body.grid.one-column #posts {
 body.grid.two-column {
   #posts {
       @include span-columns(16,20);
-      article {
-         @include span-columns(8,16);
-         @include nth-omega(2n);  
-      }
   }
   aside.right, aside.left {
       @include span-columns(4,20);
