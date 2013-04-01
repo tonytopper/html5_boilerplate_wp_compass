@@ -8,7 +8,7 @@
 			<article id="post-<?php the_ID(); ?>" class="post">
 				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></h2>
 				<cite>
-					<span class="date"><abbr title="<?php the_time('Y-d-m\TG:i:s') ?>" class="published"><?php the_time('jS F Y') ?></abbr></span>
+					<span class="date"><abbr title="<?php the_time('Y-d-m\TG:i:s') ?>" class="published"><?php the_time(get_theme_mod('post_date_format')) ?></abbr></span>
 					<span class="author">By <?php the_author() ?></span>
 				</cite>
 				<?php the_content('Continue reading &raquo;'); ?>

@@ -2,7 +2,7 @@
 // your own theme and override as you would like.
 
 //   If not, then just hack away below and change it as you see fit.
-$layout_width: 960px;
+$layout_width: 1240px;
 $layout_margin: 10px;
 
 // no Susy grids 
@@ -76,10 +76,14 @@ body.grid.one-column #posts {
 // 2 columns
 body.grid.two-column {
   #posts {
-      @include span-columns(11,16);
+      @include span-columns(16,20);
+      article {
+         @include span-columns(8,16);
+         @include nth-omega(2n);  
+      }
   }
   aside.right, aside.left {
-      @include span-columns(5,16);
+      @include span-columns(4,20);
   }
   &.left-column {
     aside.left {
@@ -102,11 +106,15 @@ body.grid.two-column {
 // 3 columns
 body.grid.three-column {
 	#posts {
-		@include span-columns(10,16);
+		@include span-columns(12,20);
+		article {
+         @include span-columns(4,12);
+         @include nth-omega(3n);  
+      }
 	}
 	aside.left,
 	aside.right {
-    	@include span-columns(3,16);
+    	@include span-columns(4,20);
 	}
   	aside.left {
     	

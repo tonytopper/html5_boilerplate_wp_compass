@@ -34,7 +34,7 @@ function h5susy_customize_register( $wp_customize ) {
 	//Header settings
 	$wp_customize->add_section( 'header_settings', array(
 			'title'          => 'Header',
-			'priority'       => 33,
+			'priority'       => 32,
 	) );
 	$wp_customize->add_setting( 'show_search', array(
 			'default'     => false,
@@ -44,13 +44,25 @@ function h5susy_customize_register( $wp_customize ) {
 			'section'  => 'header_settings',
 			'type'     => 'checkbox',
 	) );
+	//Date formatting settings
+	$wp_customize->add_section( 'date_format_settings', array(
+			'title'          => 'Date formatting settings',
+			'priority'       => 33,
+	) );
+	$wp_customize->add_setting( 'post_date_format', array(
+			'default'     => "jS F Y",
+	) );
+	$wp_customize->add_control( 'post_date_format', array(
+			'label'    => __( 'Post date format' ),
+			'section'  => 'date_format_settings',
+	) );
 	//Susy
 	$wp_customize->add_section( 'susy_settings', array(
 			'title'          => 'Susy',
 			'priority'       => 35,
 	) );
 	$wp_customize->add_setting( 'use_grid' , array(
-    'default'     => false,
+    'default'     => true,
     'transport'   => 'refresh',
 	) );
 	$wp_customize->add_control( 'use_grid', array(
@@ -76,7 +88,7 @@ function h5susy_customize_register( $wp_customize ) {
 			'default'     => false
 	) );
 	$wp_customize->add_setting( 'sidebar_right' , array(
-			'default'     => false
+			'default'     => true
 	) );
 	$wp_customize->add_setting( 'sidebar_footer' , array(
 			'default'     => false
@@ -262,9 +274,10 @@ if (function_exists( 'add_theme_support' )) {
 }
 
 // Load jQuery & Modernizr
-if (!is_admin()) {
-
-	wp_deregister_script('jquery');
+function h5susy_scripts_method()
+{
+	wp_deregister_script('jquery'); // get rid of any native jQuery
+	//Load jquery from Google instead
 	wp_register_script('jquery', "http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js", array(), '1.8.3');
 	wp_enqueue_script('jquery');
 
@@ -272,6 +285,7 @@ if (!is_admin()) {
 	wp_register_script( 'modernizr', get_bloginfo('template_directory') . '/js/modernizr.js', array(), '1.6' );
 	wp_enqueue_script( 'modernizr' );
 }
+add_action( 'wp_enqueue_scripts', 'h5susy_scripts_method');
 
 // Clean up the <head>
 function removeHeadLinks()
